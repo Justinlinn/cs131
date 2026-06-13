@@ -1,0 +1,20 @@
+B1: grep 'city:Santa Barbara' /data/yelp/yelp_academic_dataset_business.json
+B2: grep -c 'state:CA' /data/yelp/yelp_academic_dataset_business.json
+B3: grep -i 'text:.*worth' /data/yelp/yelp_academic_dataset_review.json
+B4: grep -E (name|categories):.*(Coffee|Café|Cafe) /data/yelp/yelp_academic_dataset_business.json
+B5: grep -E 'stars:(4\.5|5\.0)' /data/yelp/yelp_academic_dataset_business.json
+B6: grep -E 'stars:5,' /data/yelp/yelp_academic_dataset_review.json
+B7: grep -E text:.*[A-Za-z0-9_]+@[A-Za-z0-9_.]+\.+[A-Za-z]{2,} /data/yelp/yelp_academic_dataset_review.json
+B8: grep -E '"text":.*[0-9]{3}-[0-9]{3}-[0-9]{4}' /data/yelp/yelp_academic_dataset_review.json
+B9: grep -E '"name":"P' /data/yelp/yelp_academic_dataset_business.json
+B10: grep -ic 'pizza' /data/yelp/yelp_academic_dataset_review.json
+B11: grep -in 'service' /data/yelp/yelp_academic_dataset_review.json
+B12: grep -v 'Restaurants' /data/yelp/yelp_academic_dataset_business.json
+B13: 
+grep '"state":"CA"' business.json --> extracts the business records in the state of CA
+grep -oE '"review_count":[0-9]+'  --> extracts the review counts
+grep -oE '[0-9]+'                 --> extracts the numbers through 1 to 9 only
+sort -nr                          --> sorts numerically, largest first in order
+head -3                           --> prints only the top 3 results
+
+B14: grep '"city:Santa Barbara"' /data/yelp/yelp_academic_dataset_business.json | grep -oE '"name":"[^"]+"' | cut -d'"' -f4 | sort
