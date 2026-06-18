@@ -1,0 +1,29 @@
+Q1: git add notes.md
+    git commit -m ws2: add task line
+Q2: git log --oneline -
+Q3: e6f7d3d
+Q4: git revert e6f7d3d
+Q5: git rm --cached bigdata.bin
+    echo bigdata.bin >> .gitignore
+    git add .gitignore
+    git commit --amend
+    rm bigdata.bin 
+    git push
+Q6: git switch -c feature-summary
+Q7: echo Summary This is just some lines in thsi file. > summary.md
+    git add summary.md
+    git commit -m Adding summary...
+Q8: git diff main feature-summary
+Q9: git switch main
+    git merge feature-summary
+Q10: git branch -d feature-summary
+Q11: git merge conflict-branch 
+     Conflicted file: summary.md
+Q12: git diff --name-only --diff-filter=U
+Q14: git add summary.md 
+     git commit -m Q14 commit
+Q15: git fetch origin
+     git log HEAD..origin/main --oneline
+Q16: Git fetch downloads remote changes but does not merge them 
+     into my current branch, but git pull downloads and merges 
+     the changes into my current branch.
