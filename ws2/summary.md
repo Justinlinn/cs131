@@ -1,2 +1,2 @@
-# Summary
+Summary
 Branch-specific update
