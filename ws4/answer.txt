@@ -1,0 +1,51 @@
+T1:
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L268
+ftext()
+The f text function searches for the text inside the files starting from current
+folder and its subfolders. It is like a shortcut for using a recursive grep
+search.If a user searches ftext error, the word error becomes the first argument
+for the function and it then runs the grep using "$1" as the search pattern
+and "." as the searching location, which means that it searches the current
+folder and everything under it It uses grep, with -i for case sensitive searches,
+so that the word error can also match ERROR, ErroR or etc. -I is to ignore
+binary files, which are not readable text files. -H will print the file names
+-r will recursively find through subfolders, -n to print the line numbers. 
+The --color=always will show the matching text in color. The grep result will
+be sent into less, which will let the user to scroll though the search results
+while -r maintains the color formatting from the grep.
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L302
+cpg()
+Copy and go function. It copies a file or a directory to a destination.If that
+destination is a directory, it changes the path automatically to the that directory
+once the copy succeeds. The first argument is $1, which is the source being
+copied, the $2 is the destination. The if statement checks whether the $2 destination
+is a directory with -d. If it is true, it will copy$1 into $2, and cd $2 will only happen if cp $1 $2 works sucessfully.
+If $2 is not a directory, then it will just copy normally and won't change the directories.
+  
+__________________________________________________________________________
+
+T2:
+ https://github.com/Justinlinn/cs131/blob/c01528f489bcc68565adb24ea0d5e687e139f05a/ws4/.bashrc#L3
+alias ll='ls -alh'
+
+This alias allows me to type just ll instead of the whole line of ls -alh every
+time I want to use it. This will show all files, including the hidden files,
+with the output of long format in human readable format.
+
+https://github.com/Justinlinn/cs131/blob/c01528f489bcc68565adb24ea0d5e687e139f05a/ws4/.bashrc#L5
+mkcd() {
+    mkdir -p "$1"
+    cd "$1"
+}
+
+This shell function creates a folder and then moves into it.
+
+https://github.com/Justinlinn/cs131/blob/c01528f489bcc68565adb24ea0d5e687e139f05a/ws4/.bashrc#L10 
+if [[ $- == *i* ]]; then
+    echo "Welcome, $USER"
+fi
+
+This if-statement checks if the shell is interactive. If it is true, it will
+print a welcome message with my username.This will run only when I open a terminal
+window.
