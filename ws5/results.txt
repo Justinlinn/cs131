@@ -1,0 +1,71 @@
+Batch [1d1ae26590e5428ba98b720a9d447d04] submitted.
+The positive total bill coefficient means that the predicted tip 
+increases as the total bill increases, while holding the same
+party size.
+
+WARNING: No runtime version specified. Using the default runtime version. It is recommended to select a specific major.minor runtime version in production, as the default runtime version may change at any time.
+Using the default container image
+Waiting for container log creation
+PYSPARK_PYTHON=/opt/dataproc/conda/bin/python
+Generating /home/spark/.pip/pip.conf
+Configuring index-url as 'https://us-python.pkg.dev/artifact-registry-python-cache/virtual-python/simple/'
+JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64
+SPARK_EXTRA_CLASSPATH=
+:: loading settings :: file = /etc/spark/conf/ivysettings.xml
+26/07/22 22:21:10 WARN MetricsConfig: Cannot locate configuration: tried hadoop-metrics2-google-hadoop-file-system.properties,hadoop-metrics2.properties
+26/07/22 22:21:10 INFO MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+26/07/22 22:21:10 INFO MetricsSystemImpl: google-hadoop-file-system metrics system started
+Showing input data:
++----------+----+------+------+---+------+----+
+|total_bill| tip|   sex|smoker|day|  time|size|
++----------+----+------+------+---+------+----+
+|     16.99|1.01|Female|    No|Sun|Dinner|   2|
+|     10.34|1.66|  Male|    No|Sun|Dinner|   3|
+|     21.01| 3.5|  Male|    No|Sun|Dinner|   3|
+|     23.68|3.31|  Male|    No|Sun|Dinner|   2|
+|     24.59|3.61|Female|    No|Sun|Dinner|   4|
++----------+----+------+------+---+------+----+
+only showing top 5 rows
+
+26/07/22 22:21:30 WARN Instrumentation: [cbae506e] regParam is zero, which might cause numerical instability and overfitting.
+26/07/22 22:21:32 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.VectorBLAS
+Showing predictions:
++----------+----+----+------------------+
+|total_bill|size| tip|        prediction|
++----------+----+----+------------------+
+|     10.29|   2| 2.6|2.0176890093308457|
+|     10.63|   2| 2.0|2.0488549756216257|
+|     11.61|   2|3.39|2.1386862902244603|
+|     11.69|   2|2.31| 2.146019458763467|
+|     12.16|   2| 2.2| 2.189101823930133|
+|      12.6|   2| 1.0| 2.229434250894671|
+|      12.9|   2| 1.1|2.2569336329159473|
+|     13.03|   2| 2.0| 2.268850031791833|
+|     13.16|   2|2.75|2.2807664306677196|
+|     13.27|   2| 2.5| 2.290849537408854|
++----------+----+----+------------------+
+only showing top 10 rows
+
+===== MODEL RESULTS =====
+Coefficients: [0.09166460673758668,0.16730275510410045]
+Intercept: 0.7398546957928781
+RMSE: 0.9678276518019794
+R2: 0.47216184256078675
+Batch [1d1ae26590e5428ba98b720a9d447d04] finished.
+metadata:
+  '@type': type.googleapis.com/google.cloud.dataproc.v1.BatchOperationMetadata
+  batch: projects/summer2026-499516/locations/us-west1/batches/1d1ae26590e5428ba98b720a9d447d04
+  batchUuid: 337e08f4-c318-4ebd-9961-c89dd235332b
+  createTime: '2026-07-22T22:19:48.542512Z'
+  description: Batch
+  labels:
+    goog-dataproc-batch-id: 1d1ae26590e5428ba98b720a9d447d04
+    goog-dataproc-batch-uuid: 337e08f4-c318-4ebd-9961-c89dd235332b
+    goog-dataproc-drz-resource-uuid: batch-337e08f4-c318-4ebd-9961-c89dd235332b
+    goog-dataproc-location: us-west1
+  operationType: BATCH
+  warnings:
+  - No runtime version specified. Using the default runtime version. It is recommended
+    to select a specific major.minor runtime version in production, as the default
+    runtime version may change at any time.
+name: projects/summer2026-499516/regions/us-west1/operations/38457ad8-f43f-3884-ad0a-20033874538b
