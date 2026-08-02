@@ -1,0 +1,52 @@
+A1: ls -l > listing.txt
+A1: date >> listing.txt
+A2: ls /nonexistent_dir 2> errors.txt
+A2 answer: standard error is file descriptor 2
+A3: ls /nonexistent_dir /etc > output.txt 2> errors.txt
+A4: ls /nonexistent_dir /etc &> combined.txt
+A5: ls /nonexistent_dir /etc 2>/dev/null
+A5 answer: only stdout prints to the terminal; stderr is discarded by /dev/null
+A6: sort fruits.txt | uniq
+A7: sort fruits.txt | uniq -c | sort -nr
+A8: grep ERROR server.log | wc -l
+A9: grep ERROR server.log > errors_only.txt
+A10: grep -oE '^[A-Z]+' server.log | sort | uniq -c | sort -nr
+A11: grep -oE '"state"[[:space:]]*:[[:space:]]*"[A-Z][A-Z]"' /data/yelp/yelp_academic_dataset_business.json | grep -oE '[A-Z][A-Z]' | sort | uniq -c | sort -nr | head -5
+____________________
+B1: id
+B1 answer: uid is the user ID for my account; gid is the group ID for my primary group. The id command also shows all group names I belong to.
+B2: ls -l fruits.txt
+B2 answer: the permission string shows owner/group/other permissions. For example, -rw-r--r-- means owner can read and write, group can read only, and others can read only.
+B3: umask
+B3: echo \"top secret\" > secret.txt
+B3: ls -l secret.txt
+B3 answer: the umask removes permissions from the default new-file permissions. A common umask of 0022 makes new files become -rw-r--r--.
+B4: chmod 000 secret.txt
+B4: cat secret.txt
+B4 answer: cat gives Permission denied because all permissions were removed.
+B4: chmod u+rw secret.txt
+B5: chmod 640 fruits.txt
+B5 answer: octal value 640 means owner read/write, group read only, others no permissions.
+B6: find ~/cs131/ws3 -type f -user \"\$USER\" -perm -u=w
+___________________________
+C1: cat > long.sh << 'EOF' ... EOF
+C1: bash long.sh > log.txt &
+C1: tail log.txt
+C2: jobs
+C2 answer: jobs shows the job number, the status, and the command.
+C3: fg
+C3: Ctrl-Z
+C3: jobs
+C3 answer: after Ctrl-Z, jobs shows the job as Stopped.
+C4: bg %1
+C4: jobs
+C5: kill %1
+C5: kill %1
+C5 answer: kill sends SIGTERM by default when no signal is specified.
+C6: bash long.sh > log.txt &
+C6: PID=$!
+C6: disown %1
+C6: jobs
+C6: ps -p "$PID"
+C7 answer: disown removes the job from the shell's job table, so the shell will not send it a hangup signal when the terminal closes.
+C7: kill "$PID"
